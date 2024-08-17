@@ -2164,7 +2164,7 @@ GameObject:
   - component: {fileID: 2118428147}
   - component: {fileID: 2118428146}
   m_Layer: 0
-  m_Name: Floor
+  m_Name: The Sands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

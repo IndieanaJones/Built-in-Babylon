@@ -39,8 +39,13 @@ public class FPSPerspective : MonoBehaviour
             Camera.main.transform.localRotation = Quaternion.identity;
             Cursor.lockState = CursorLockMode.Locked;
         }
-        if(canvas != null)
+        if (canvas != null)
+        {
             canvas.SetActive(toEnable);
+            Canvas canvasComponent = canvas.GetComponent<Canvas>();
+            if (canvasComponent != null)
+                canvasComponent.worldCamera = Camera.main;
+        }
         isInFPS = toEnable;
     }
 }

@@ -24,7 +24,9 @@ public class Rock : MonoBehaviour
 
     public void AdjustYLevel()
     {
-        if (RocksRemaining <= 20)
+        if (RocksRemaining == 0)
+            Destroy(this);
+        else  if (RocksRemaining <= 20)
             transform.position = new Vector3(transform.position.x, InitialYPosition - 11.5f, transform.position.z);
         else if (RocksRemaining <= 50)
             transform.position = new Vector3(transform.position.x, InitialYPosition - 7, transform.position.z);
