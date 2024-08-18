@@ -15,6 +15,9 @@ public class CharacterMaster : MonoBehaviour
     public float movementXAxisInput;
     public float movementYAxisInput;
 
+    public bool interactPressed;
+    public bool interactHeld;
+
     public virtual void PostMoveUpdate()
     {
 

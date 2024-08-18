@@ -56,7 +56,7 @@ public class FootGuider : MonoBehaviour
         float zBendC = Vector2.Distance(new Vector2(-zBendB, 0), new Vector2(transform.localPosition.y * BaseModelTransform.localScale.y, transform.localPosition.z * BaseModelTransform.localScale.z));
 
         float requiredZBend = Mathf.Acos((Mathf.Pow(zBendC, 2) - Mathf.Pow(zBendA, 2) - Mathf.Pow(zBendB, 2)) / (-2 * zBendA * zBendB));
-        requiredZBend = requiredZBend * Mathf.Rad2Deg * (transform.localPosition.z < 0 ? -1 : 1);
+        requiredZBend = requiredZBend * Mathf.Rad2Deg * (transform.localPosition.z < 0 ? 1 : -1);
 
         ourPivotTap.transform.rotation = Quaternion.Euler(new Vector3(0, thighPivotPosition.eulerAngles.y, 0));
 

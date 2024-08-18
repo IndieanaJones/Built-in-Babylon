@@ -19,5 +19,8 @@ public class PlayerCharacterMaster : CharacterMaster
 
         movementXAxisInput = (Input.GetKey(KeyCode.D) ? 1 : 0) + (Input.GetKey(KeyCode.A) ? -1 : 0);
         movementYAxisInput = (Input.GetKey(KeyCode.W) ? 1 : 0) + (Input.GetKey(KeyCode.S) ? -1 : 0);
+
+        interactPressed = Input.GetKeyDown(KeyCode.E);
+        interactHeld = Input.GetKey(KeyCode.E);
     }
 }

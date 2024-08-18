@@ -42,6 +42,12 @@ public class BaseBody : MonoBehaviour, ICharacterController
         OurAudioSource.PlayOneShot((AudioClip)Resources.Load("Sounds/" + anim.stringParameter));
     }
 
+    public void PlaySound(string soundName, float pitchShift)
+    {
+        OurAudioSource.pitch = 1 + Random.Range(-pitchShift, pitchShift);
+        OurAudioSource.PlayOneShot((AudioClip)Resources.Load("Sounds/" + soundName));
+    }
+
     //Override this in a body script
     public virtual void UpdateCharacterRotation(ref Quaternion currentRotation, float deltaTime)
     {
@@ -86,7 +92,7 @@ public class BaseBody : MonoBehaviour, ICharacterController
         return true;
     }
 
-    public void OnGroundHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport)
+    public virtual void OnGroundHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport)
     {
         return;
     }
