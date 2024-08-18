@@ -76,6 +76,7 @@ public class AngelTalker : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         yield return StartCoroutine(RemoveBlackscreen());
+        CurrentlyTalking = true;
         yield return new WaitForSeconds(12f);
         yield return StartCoroutine(OpenTextBox());
         yield return StartCoroutine(SayLine("I fucking love science"));
@@ -83,5 +84,6 @@ public class AngelTalker : MonoBehaviour
         yield return StartCoroutine(SayLine("I also harbor a great love of oasises and a genuine pureblood hatred of towers."));
         yield return StartCoroutine(SayLine("9/11 (nine eleven) was genuinely deserved."));
         yield return StartCoroutine(CloseTextBox());
+        CurrentlyTalking = false;
     }
 }
