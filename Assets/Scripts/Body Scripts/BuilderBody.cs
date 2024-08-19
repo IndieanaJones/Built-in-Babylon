@@ -55,7 +55,7 @@ public class BuilderBody : BaseBody
 
     public void HandleAttack()
     {
-        if (AttackCooldownTimer > Time.time || !characterMaster.primaryFireHeld || isChiseling)
+        if (AttackCooldownTimer > Time.time || characterMaster == null || !characterMaster.primaryFireHeld || isChiseling)
             return;
         AttackCooldownTimer = Time.time + AttackCoolown;
         BuilderAnimatorComp.HandleAttack("pickaxe");
@@ -69,7 +69,7 @@ public class BuilderBody : BaseBody
             if(hit.collider.GetComponent<Rock>())
             {
                 Rock hitRock = hit.collider.GetComponent<Rock>();
-                int rocksToHarvest = Mathf.Min(MiningPower, RockCollectorComp.MaximumRockCapacity - RockCollectorComp.RocksCollected);
+                int rocksToHarvest = Mathf.Min(MiningPower + ProgressionManager.MiningPowerAdditive, RockCollectorComp.MaximumRockCapacity - RockCollectorComp.RocksCollected);
                 hitRock.OnHarvest(RockCollectorComp, rocksToHarvest);
                 DoDecalSpawn(hit);
                 if (rocksToHarvest <= 0)
@@ -96,6 +96,8 @@ public class BuilderBody : BaseBody
 
     public void HandleInteract()
     {
+        if (characterMaster == null)
+            return;
         isChiseling = false;
         if (characterMaster.interactPressed && InteractorComp.NearestInteractable != null)
             InteractorComp.NearestInteractable.OnInteract(InteractorComp);
@@ -105,6 +107,12 @@ public class BuilderBody : BaseBody
             if(InteractorComp.NearestInteractable.InteractHoldUseChiselAnimation)
                 isChiseling = true;
         }
+    }
+
+    public override void Die()
+    {
+        base.Die();
+        Destroy(gameObject);
     }
 
     public override void UpdateCharacterRotation(ref Quaternion currentRotation, float deltaTime)
@@ -149,8 +157,15 @@ public class BuilderBody : BaseBody
     public override void OnGroundHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport)
     {
         base.OnGroundHit(hitCollider, hitNormal, hitPoint, ref hitStabilityReport);
-        if (hitCollider.GetComponent<MeshRenderer>() && hitCollider.GetComponent<MeshRenderer>().sharedMaterial.name == "Road")
-            SpeedMultiplier = 2f;
+        if (hitCollider.GetComponent<MeshRenderer>())
+        {
+            if (hitCollider.GetComponent<MeshRenderer>().sharedMaterial.name == "Road")
+                SpeedMultiplier = 2f;
+            else if (hitCollider.GetComponent<MeshRenderer>().sharedMaterial.name.Contains("Carpet"))
+                SpeedMultiplier = 1.5f;
+            else
+                SpeedMultiplier = 1;
+        }
         else
             SpeedMultiplier = 1;
     }

@@ -26,6 +26,8 @@ public class BuildSign : Interactable
     public GameObject[] ObjectsToDisable;
     public GameObject[] ObjectsToEnable;
 
+    public int MinePowerAdditiveChange = 0;
+
     public override void Update()
     {
         base.Update();
@@ -98,6 +100,7 @@ public class BuildSign : Interactable
             toBeEnabled.SetActive(true);
         foreach (GameObject toBeDisabled in ObjectsToDisable)
             toBeDisabled.SetActive(false);
+        ProgressionManager.MiningPowerAdditive += MinePowerAdditiveChange;
         Destroy(gameObject);
     }
 }

@@ -143,7 +143,7 @@ public class AngelTalker : MonoBehaviour
         yield return new WaitForSeconds(2f);
         yield return StartCoroutine(RemoveBlackscreen());
         CurrentlyTalking = true;
-        yield return new WaitForSeconds(12f);
+        yield return new WaitForSeconds(5f);
         yield return StartCoroutine(OpenTextBox());
         yield return StartCoroutine(SayLine("Ah, greetings mortal. I've been expecting you."));
         yield return StartCoroutine(SayLine("You must be the builder that the others spoke of."));
@@ -220,7 +220,22 @@ public class AngelTalker : MonoBehaviour
         yield return StartCoroutine(SayLine("Gone..."));
         MusicTrack.Play();
         yield return StartCoroutine(SayLine("YOU WILL PAY FOR WHAT YOU HAVE DONE", 3, 0.1f, "red"));
+        AngelEventManager.Instance.AddEvent("lightning");
+        AngelEventManager.Instance.TimeForNextEvent = Time.time + 5f;
+        AngelEventManager.Instance.PauseEventTimer = false;
         yield return StartCoroutine(CloseTextBox());
+        CurrentlyTalking = false;
+    }
+
+    public IEnumerator Line5()
+    {
+        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(OpenTextBox());
+        yield return StartCoroutine(SayLine("What hideous walls you've built."));
+        yield return StartCoroutine(SayLine("Probably structurally unsound, too."));
+        yield return StartCoroutine(SayLine("But you don't seem to care for my words, do you?"));
+        yield return StartCoroutine(SayLine("Perhaps we should get some of your peers to review your work instead..."));
+        AngelEventManager.Instance.AddEvent("zombies");
         CurrentlyTalking = false;
     }
 

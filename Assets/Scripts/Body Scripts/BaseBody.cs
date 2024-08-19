@@ -48,6 +48,12 @@ public class BaseBody : MonoBehaviour, ICharacterController
         OurAudioSource.PlayOneShot((AudioClip)Resources.Load("Sounds/" + soundName));
     }
 
+    public virtual void Die()
+    {
+        if (Camera.main.transform.IsChildOf(gameObject.transform))
+            Camera.main.transform.SetParent(null);
+    }
+
     //Override this in a body script
     public virtual void UpdateCharacterRotation(ref Quaternion currentRotation, float deltaTime)
     {

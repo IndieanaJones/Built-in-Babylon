@@ -164,6 +164,7 @@ GameObject:
   - component: {fileID: 983952372424714582}
   - component: {fileID: 3881931214306670114}
   - component: {fileID: 3818110788375705436}
+  - component: {fileID: 2424067770124962903}
   - component: {fileID: 6817823430351729148}
   m_Layer: 0
   m_Name: Angel
@@ -228,10 +229,27 @@ MonoBehaviour:
   AngryCloudSprite: {fileID: 21300000, guid: 4c63f3d1c3ddf3140b8d48f38c7a3275, type: 3}
   AngelTalkerText: {fileID: 6918651999572929657}
   BlackScreenCover: {fileID: 7569316649844867951}
+  CloudAnimator: {fileID: 0}
   VoiceSoundList: []
   CurrentlyTalking: 0
   MusicTrack: {fileID: 2814115909197020734}
   AudioSourceComp: {fileID: 6817823430351729148}
+--- !u!114 &2424067770124962903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983952372424714583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f44fa674347fba4b9185e667c8f9d5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PauseEventTimer: 1
+  TimeWhenLastEventOccurred: 0
+  TimeForNextEvent: 15
+  AvailableEvents: []
 --- !u!82 &6817823430351729148
 AudioSource:
   m_ObjectHideFlags: 0
