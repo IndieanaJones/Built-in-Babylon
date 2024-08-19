@@ -8,10 +8,20 @@ public class BuildSign : Interactable
     public int RocksGathered = 0;
     public string ConnectedBuildProject = "";
     public float BuildPercent = 0;
+    public float BuildSpeedPerSecond = 0.25f;
 
     public GameObject Rock1;
     public GameObject Rock2;
     public GameObject Rock3;
+
+    public bool TriggersDialogueOnRockDeposit = false;
+    public int RockDepositLine = -1;
+
+    public bool TriggersDialogueOnBuildStart = false;
+    public int BuildStartLine = -1;
+
+    public bool TriggersDialogueOnBuildComplete = false;
+    public int BuildCompleteLine = -1;
 
     public GameObject[] ObjectsToDisable;
     public GameObject[] ObjectsToEnable;
@@ -52,19 +62,33 @@ public class BuildSign : Interactable
             if (RocksGathered == RocksRequired)
             {
                 Rock3.SetActive(true);
-                CanInteractHold = true;
-                InteractHoldUseChiselAnimation = true;
+                StartCoroutine(DelayToInteractHold());
+                if (TriggersDialogueOnRockDeposit)
+                    AngelTalker.Instance.DoAngelLineTrigger(RockDepositLine);
             }
         }
+    }
+
+    public IEnumerator DelayToInteractHold()
+    {
+        yield return new WaitForSeconds(0.5f);
+        CanInteractHold = true;
+        InteractHoldUseChiselAnimation = true;
     }
 
     public override void OnInteractHeld(Interactor interactor)
     {
         if (RocksRequired != RocksGathered)
             return;
-        BuildPercent = Mathf.Min(1, BuildPercent + (0.05f * Time.deltaTime));
+        if(BuildPercent == 0 && TriggersDialogueOnBuildStart)
+            AngelTalker.Instance.DoAngelLineTrigger(BuildStartLine);
+        BuildPercent = Mathf.Min(1, BuildPercent + (BuildSpeedPerSecond * Time.deltaTime));
         if (BuildPercent >= 1)
+        {
+            if(TriggersDialogueOnBuildComplete)
+                AngelTalker.Instance.DoAngelLineTrigger(BuildCompleteLine);
             DoCompletionEffects();
+        }
     }
 
     public void DoCompletionEffects()

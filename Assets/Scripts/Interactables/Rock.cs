@@ -7,6 +7,8 @@ public class Rock : MonoBehaviour
     public int RocksRemaining = 100;
     public float InitialYPosition = 0;
     public bool DoRandomRotation = true;
+    public bool BreakingTriggersDialogue = false;
+    public int DialogueToTrigger = -1;
 
     public void Awake()
     {
@@ -27,6 +29,8 @@ public class Rock : MonoBehaviour
         if (RocksRemaining == 0)
         {
             AudioSource.PlayClipAtPoint(((AudioClip)Resources.Load("Sounds/Rock Destroy")), transform.position);
+            if (BreakingTriggersDialogue)
+                AngelTalker.Instance.DoAngelLineTrigger(DialogueToTrigger);
             Destroy(gameObject);
         }
         else if (RocksRemaining <= 20)

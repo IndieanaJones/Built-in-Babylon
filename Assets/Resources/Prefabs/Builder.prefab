@@ -276,9 +276,10 @@ MonoBehaviour:
   BuilderAnimatorComp: {fileID: 1352547104041384785}
   RockCollectorComp: {fileID: 8786107234291004337}
   InteractorComp: {fileID: 6044635960594412615}
-  moveSpeed: 18.5
+  moveSpeed: 27
   maxAcceleration: 1.8
   backPedalModifier: 0.8
+  SpeedMultiplier: 1
   jumpForce: 22
   gravity: 1.3
   airControlMultiplier: 0.5

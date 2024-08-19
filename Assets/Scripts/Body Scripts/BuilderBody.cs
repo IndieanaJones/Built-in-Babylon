@@ -150,7 +150,7 @@ public class BuilderBody : BaseBody
     {
         base.OnGroundHit(hitCollider, hitNormal, hitPoint, ref hitStabilityReport);
         if (hitCollider.GetComponent<MeshRenderer>() && hitCollider.GetComponent<MeshRenderer>().sharedMaterial.name == "Road")
-            SpeedMultiplier = 2;
+            SpeedMultiplier = 2f;
         else
             SpeedMultiplier = 1;
     }
