@@ -119,6 +119,9 @@ public class AngelTalker : MonoBehaviour
             case 4:
                 StartCoroutine(Line4());
                 break;
+            case 5:
+                StartCoroutine(Line5());
+                break;
             default:
                 StartCoroutine(LineNonExistant());
                 break;
@@ -235,7 +238,8 @@ public class AngelTalker : MonoBehaviour
         yield return StartCoroutine(SayLine("Probably structurally unsound, too."));
         yield return StartCoroutine(SayLine("But you don't seem to care for my words, do you?"));
         yield return StartCoroutine(SayLine("Perhaps we should get some of your peers to review your work instead..."));
-        AngelEventManager.Instance.AddEvent("zombies");
+        AngelEventManager.Instance.AddEvent("mummies");
+        yield return StartCoroutine(CloseTextBox());
         CurrentlyTalking = false;
     }
 

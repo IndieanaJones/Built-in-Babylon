@@ -66,7 +66,9 @@ public class BuilderBody : BaseBody
         RaycastHit hit;
         if (Physics.Raycast(ourCamera.transform.position, Quaternion.Euler(cameraXRotation, cameraYRotation, 0) * Vector3.forward, out hit, PickaxeRange))
         {
-            if(hit.collider.GetComponent<Rock>())
+            if (hit.collider.gameObject == gameObject)
+                return;
+            else if (hit.collider.GetComponent<Rock>())
             {
                 Rock hitRock = hit.collider.GetComponent<Rock>();
                 int rocksToHarvest = Mathf.Min(MiningPower + ProgressionManager.MiningPowerAdditive, RockCollectorComp.MaximumRockCapacity - RockCollectorComp.RocksCollected);
@@ -78,10 +80,22 @@ public class BuilderBody : BaseBody
                     PlaySound("Pickaxe Contact Rock", 0.1f);
                 hitRock.AdjustYLevel();
             }
-            else if(hit.collider != null)
+            else if (hit.collider.GetComponent<Health>())
             {
-                PlaySound("Pickaxe Contact Non-Rock", 0.1f);
-                DoDecalSpawn(hit);
+                Health EnemyHealth = hit.collider.GetComponent<Health>();
+                EnemyHealth.TakeDamage(AttackPower);
+            }
+            else if (hit.collider != null)
+            {
+                if (hit.transform.gameObject.layer == 7)
+                {
+
+                }
+                else
+                {
+                    PlaySound("Pickaxe Contact Non-Rock", 0.1f);
+                    DoDecalSpawn(hit);
+                }
             }
         }
     }

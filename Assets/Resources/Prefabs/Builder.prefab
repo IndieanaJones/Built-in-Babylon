@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6523257358608299515}
   - component: {fileID: 2633850293016178736}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BodyPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 1099090560770993004}
   - component: {fileID: 1019769056377014754}
   - component: {fileID: 5694881652090059830}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9178597691952763583}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 520819316686346090}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftItemPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 4888820491965681747}
   - component: {fileID: 8342318421173784915}
   - component: {fileID: 6829191583330726213}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Builder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,6 +274,7 @@ MonoBehaviour:
   characterMaster: {fileID: 0}
   fpsPerspective: {fileID: 2749064004285373159}
   ourCamera: {fileID: 1578707911705783822}
+  DontHandleCamera: 0
   cameraYRotation: 0
   cameraXRotation: 0
   BuilderAnimatorComp: {fileID: 1352547104041384785}
@@ -525,6 +526,9 @@ MonoBehaviour:
   MaxHealth: 10
   CurrentHealth: 10
   DeathCalledFor: 0
+  BaseBodyComp: {fileID: 1537026231611543040}
+  HurtSound: Impact Human
+  DeathSound: Human Death
 --- !u!54 &8342318421173784915
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -565,7 +569,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3078260142406539893}
   - component: {fileID: 3544561859549802169}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LowerLeftLegPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -613,7 +617,7 @@ GameObject:
   m_Component:
   - component: {fileID: 550541904851584660}
   - component: {fileID: 6000523134204086282}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftHandPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -662,7 +666,7 @@ GameObject:
   - component: {fileID: 8255542693835035265}
   - component: {fileID: 4574288473831853387}
   - component: {fileID: 3095403261221435827}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightGhostFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -728,7 +732,7 @@ GameObject:
   - component: {fileID: 4252520320017745579}
   - component: {fileID: 3210529684956899563}
   - component: {fileID: 5295862723397977233}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -769,6 +773,7 @@ MonoBehaviour:
   InteractorComponent: {fileID: 6044635960594412615}
   RockCollectorCounter: {fileID: 8005458242588234993}
   InteractText: {fileID: 1215381089267220923}
+  HealthFlash: {fileID: 1563260953834104135}
   HealthImage: {fileID: 5694881652090059830}
   Coconut10: {fileID: 84863412, guid: d9b204970b596b743b61f14d9a395fa0, type: 3}
   Coconut9: {fileID: -1973561632, guid: d9b204970b596b743b61f14d9a395fa0, type: 3}
@@ -812,7 +817,7 @@ GameObject:
   - component: {fileID: 7560451743627254909}
   - component: {fileID: 3979421188107507979}
   - component: {fileID: 1215381089267220923}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Interact Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -891,7 +896,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4315611728949771831}
   - component: {fileID: 9025882849910901348}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftLegPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -938,7 +943,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5207947151962220407}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -977,7 +982,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6224176332828887711}
   - component: {fileID: 9173378580039156355}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightArmPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1026,7 +1031,7 @@ GameObject:
   - component: {fileID: 6111352649130103299}
   - component: {fileID: 5609626693773552302}
   - component: {fileID: 8005458242588234993}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1095,6 +1100,82 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 0
+--- !u!1 &2273592148849324103
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6459683852811510716}
+  - component: {fileID: 3760983765550606791}
+  - component: {fileID: 1563260953834104135}
+  m_Layer: 7
+  m_Name: HurtFlash
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6459683852811510716
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2273592148849324103}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6026109030776316420}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0.17101}
+  m_SizeDelta: {x: 800, y: 452.34}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &3760983765550606791
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2273592148849324103}
+  m_CullTransparentMesh: 1
+--- !u!114 &1563260953834104135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2273592148849324103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.3301887, g: 0, b: 0, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &2681424580979199325
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,7 +1185,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 211820495803288615}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightGhostFootPivotTap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1137,7 +1218,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8799860606529054450}
   - component: {fileID: 9049550458818126874}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftArmPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1185,7 +1266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3901569938052772728}
   - component: {fileID: 3506470532349532993}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LowerLeftArmPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1233,7 +1314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2502946128089915162}
   - component: {fileID: 6218221585367973811}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Camera Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1281,7 +1362,7 @@ GameObject:
   - component: {fileID: 4931369196374499983}
   - component: {fileID: 3087875785086625151}
   - component: {fileID: 2970431517306321096}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1360,7 +1441,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6525533156876754129}
   - component: {fileID: 3986799776489917327}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LowerRightLegPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1408,7 +1489,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1494050683185766916}
   - component: {fileID: 5595775432231395334}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hammer Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1457,7 +1538,7 @@ GameObject:
   - component: {fileID: 1600245586834661837}
   - component: {fileID: 2810708574059073640}
   - component: {fileID: 6075956002994210372}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1479,6 +1560,7 @@ RectTransform:
   - {fileID: 7560451743627254909}
   - {fileID: 6075776874456479887}
   - {fileID: 5207947151962220407}
+  - {fileID: 6459683852811510716}
   m_Father: {fileID: 2502946128089915162}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1557,7 +1639,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7148805604330860509}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FPS Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1592,7 +1674,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3919516648687200645}
   - component: {fileID: 7218146717070683067}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LowerRightArmPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1641,7 +1723,7 @@ GameObject:
   - component: {fileID: 9017908969707385056}
   - component: {fileID: 5278075735365551131}
   - component: {fileID: 2905645914716267236}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftGhostFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1706,7 +1788,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4039086187975474722}
   - component: {fileID: 2184702905967215932}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftFootPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1753,7 +1835,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5228566607101628336}
   - component: {fileID: 6376173319832968621}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightHandPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1800,7 +1882,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6075776874456479887}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1839,7 +1921,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4235913751547070847}
   - component: {fileID: 1930664129694593955}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightFootPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1887,7 +1969,7 @@ GameObject:
   - component: {fileID: 8876244349282967050}
   - component: {fileID: 3841204385818359790}
   - component: {fileID: 237116821631537683}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1962,7 +2044,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5372771020597376537}
   - component: {fileID: 364238243736786665}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Chisel Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2009,7 +2091,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8752010025245956284}
   - component: {fileID: 7588404842341192226}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HeadPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2055,7 +2137,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7513010715917158967}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pickaxe Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2088,7 +2170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5614340846711878298}
   - component: {fileID: 8060173623394376686}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightLegPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2136,7 +2218,7 @@ GameObject:
   m_Component:
   - component: {fileID: 716911829675355466}
   - component: {fileID: 6309690869513247397}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PelvisPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2185,7 +2267,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5670355650891032373}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightItemPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2218,7 +2300,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1436871663211734326}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftGhostFootPivotTap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2248,6 +2330,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7513010715917158967}
     m_Modifications:
+    - target: {fileID: 2153616572355179829, guid: 9e58a43318bb22643ad8bf2a9feec297, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093084012298902071, guid: 9e58a43318bb22643ad8bf2a9feec297, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6803642572190086576, guid: 9e58a43318bb22643ad8bf2a9feec297, type: 3}
       propertyPath: m_CastShadows
       value: 0
@@ -2259,6 +2349,10 @@ PrefabInstance:
     - target: {fileID: 6943872348492904538, guid: 9e58a43318bb22643ad8bf2a9feec297, type: 3}
       propertyPath: m_Name
       value: Pickaxe
+      objectReference: {fileID: 0}
+    - target: {fileID: 6943872348492904538, guid: 9e58a43318bb22643ad8bf2a9feec297, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7503489965697965760, guid: 9e58a43318bb22643ad8bf2a9feec297, type: 3}
       propertyPath: m_CastShadows
@@ -2398,6 +2492,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LowerLeg
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7f3df853aa8251246bdf6f936f95305d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f3df853aa8251246bdf6f936f95305d, type: 3}
 --- !u!4 &34489257843658961 stripped
@@ -2471,6 +2569,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9346d4d862deadc4e9e449291169fb20, type: 3}
       propertyPath: m_Name
       value: Foot
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9346d4d862deadc4e9e449291169fb20, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9346d4d862deadc4e9e449291169fb20, type: 3}
@@ -2546,6 +2648,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hand
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 044d97b3b9377c34989f07ed3eb745e7, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 044d97b3b9377c34989f07ed3eb745e7, type: 3}
 --- !u!4 &1058661598661977896 stripped
@@ -2615,6 +2721,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ec1ed0d5cc7961649b5a266f946c4602, type: 3}
       propertyPath: m_Name
       value: LowerArm
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ec1ed0d5cc7961649b5a266f946c4602, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec1ed0d5cc7961649b5a266f946c4602, type: 3}
@@ -2690,6 +2800,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LowerLeg
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7f3df853aa8251246bdf6f936f95305d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f3df853aa8251246bdf6f936f95305d, type: 3}
 --- !u!4 &1058661598230974626 stripped
@@ -2763,6 +2877,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5125f75020c8ca14b93889147d771509, type: 3}
       propertyPath: m_Name
       value: Body
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5125f75020c8ca14b93889147d771509, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5125f75020c8ca14b93889147d771509, type: 3}
@@ -2838,6 +2956,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hand
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 044d97b3b9377c34989f07ed3eb745e7, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 044d97b3b9377c34989f07ed3eb745e7, type: 3}
 --- !u!4 &1058661597878727495 stripped
@@ -2911,6 +3033,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a08accf88144aa54d9df9247bf9c03ff, type: 3}
       propertyPath: m_Name
       value: Leg
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a08accf88144aa54d9df9247bf9c03ff, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a08accf88144aa54d9df9247bf9c03ff, type: 3}
@@ -2986,6 +3112,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arm
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5652ed2c299fd1047850ff3b9b089c29, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5652ed2c299fd1047850ff3b9b089c29, type: 3}
 --- !u!4 &1058661597469593108 stripped
@@ -3055,6 +3185,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ec1ed0d5cc7961649b5a266f946c4602, type: 3}
       propertyPath: m_Name
       value: LowerArm
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ec1ed0d5cc7961649b5a266f946c4602, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec1ed0d5cc7961649b5a266f946c4602, type: 3}
@@ -3130,6 +3264,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arm
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5652ed2c299fd1047850ff3b9b089c29, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5652ed2c299fd1047850ff3b9b089c29, type: 3}
 --- !u!4 &1058661597418872020 stripped
@@ -3204,6 +3342,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pelvis
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 90e00aa9b75897648827e1d9842a53be, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90e00aa9b75897648827e1d9842a53be, type: 3}
 --- !u!4 &1058661597018439776 stripped
@@ -3277,6 +3419,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: df39f5ce01312254dad69cb199c4be45, type: 3}
       propertyPath: m_Name
       value: Head
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: df39f5ce01312254dad69cb199c4be45, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df39f5ce01312254dad69cb199c4be45, type: 3}
@@ -3356,6 +3502,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Foot
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9346d4d862deadc4e9e449291169fb20, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9346d4d862deadc4e9e449291169fb20, type: 3}
 --- !u!4 &774041816526330210 stripped
@@ -3370,9 +3520,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5670355650891032373}
     m_Modifications:
+    - target: {fileID: 2153616572355179829, guid: 9e58a43318bb22643ad8bf2a9feec297, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093084012298902071, guid: 9e58a43318bb22643ad8bf2a9feec297, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6943872348492904538, guid: 9e58a43318bb22643ad8bf2a9feec297, type: 3}
       propertyPath: m_Name
       value: Pickaxe
+      objectReference: {fileID: 0}
+    - target: {fileID: 6943872348492904538, guid: 9e58a43318bb22643ad8bf2a9feec297, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6943872348492904538, guid: 9e58a43318bb22643ad8bf2a9feec297, type: 3}
       propertyPath: m_IsActive
@@ -3496,6 +3658,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Leg
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a08accf88144aa54d9df9247bf9c03ff, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a08accf88144aa54d9df9247bf9c03ff, type: 3}
 --- !u!4 &2381837818335257788 stripped
@@ -3513,6 +3679,10 @@ PrefabInstance:
     - target: {fileID: 421555575493639485, guid: 741dba3519cca774592a20de72b468be, type: 3}
       propertyPath: m_Name
       value: Hammer
+      objectReference: {fileID: 0}
+    - target: {fileID: 421555575493639485, guid: 741dba3519cca774592a20de72b468be, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 421555575493639485, guid: 741dba3519cca774592a20de72b468be, type: 3}
       propertyPath: m_IsActive
@@ -3570,6 +3740,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2390774705981035123, guid: 741dba3519cca774592a20de72b468be, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844268682900944470, guid: 741dba3519cca774592a20de72b468be, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 741dba3519cca774592a20de72b468be, type: 3}
 --- !u!4 &2616773059777109235 stripped
@@ -3587,6 +3765,10 @@ PrefabInstance:
     - target: {fileID: 421555575493639485, guid: 741dba3519cca774592a20de72b468be, type: 3}
       propertyPath: m_Name
       value: Hammer
+      objectReference: {fileID: 0}
+    - target: {fileID: 421555575493639485, guid: 741dba3519cca774592a20de72b468be, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 421555575493639485, guid: 741dba3519cca774592a20de72b468be, type: 3}
       propertyPath: m_IsActive
@@ -3643,6 +3825,14 @@ PrefabInstance:
     - target: {fileID: 1050035955497592711, guid: 741dba3519cca774592a20de72b468be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390774705981035123, guid: 741dba3519cca774592a20de72b468be, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844268682900944470, guid: 741dba3519cca774592a20de72b468be, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 741dba3519cca774592a20de72b468be, type: 3}
@@ -3705,6 +3895,10 @@ PrefabInstance:
     - target: {fileID: 1074178727311559532, guid: 44916e97145f5bf46a2da765fb34d5f7, type: 3}
       propertyPath: m_Name
       value: Chisel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074178727311559532, guid: 44916e97145f5bf46a2da765fb34d5f7, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1074178727311559532, guid: 44916e97145f5bf46a2da765fb34d5f7, type: 3}
       propertyPath: m_IsActive
@@ -3771,6 +3965,10 @@ PrefabInstance:
     - target: {fileID: 1074178727311559532, guid: 44916e97145f5bf46a2da765fb34d5f7, type: 3}
       propertyPath: m_Name
       value: Chisel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074178727311559532, guid: 44916e97145f5bf46a2da765fb34d5f7, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1074178727311559532, guid: 44916e97145f5bf46a2da765fb34d5f7, type: 3}
       propertyPath: m_IsActive
@@ -3854,6 +4052,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Foot
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9346d4d862deadc4e9e449291169fb20, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9346d4d862deadc4e9e449291169fb20, type: 3}
 --- !u!4 &7320808772035456328 stripped
@@ -3927,6 +4129,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9346d4d862deadc4e9e449291169fb20, type: 3}
       propertyPath: m_Name
       value: Foot
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9346d4d862deadc4e9e449291169fb20, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9346d4d862deadc4e9e449291169fb20, type: 3}

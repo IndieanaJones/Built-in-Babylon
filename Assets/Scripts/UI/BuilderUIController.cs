@@ -11,6 +11,8 @@ public class BuilderUIController : MonoBehaviour
     public Text RockCollectorCounter;
     public Text InteractText;
 
+    public Image HealthFlash;
+
     public Image HealthImage;
     public Sprite Coconut10;
     public Sprite Coconut9;
@@ -31,7 +33,14 @@ public class BuilderUIController : MonoBehaviour
         RockCollectorCounter.color = RockCollectorComponent.RocksCollected == RockCollectorComponent.MaximumRockCapacity ? Color.red : Color.white;
         InteractText.text = InteractorComponent.NearestInteractable != null ? InteractorComponent.NearestInteractable.InteractString : "";
 
+        if(int.Parse(HealthValue.text) > HealthComponent.CurrentHealth)
+        {
+            StopAllCoroutines();
+            StartCoroutine(DoDamageFlash(1f));
+        }
         HealthValue.text = HealthComponent.CurrentHealth.ToString();
+
+
         switch(HealthComponent.CurrentHealth)
         {
             case 10:
@@ -64,6 +73,20 @@ public class BuilderUIController : MonoBehaviour
             case 1:
                 HealthImage.sprite = Coconut1;
                 break;
+        }
+    }
+
+    public IEnumerator DoDamageFlash(float speed)
+    {
+        Color end = HealthFlash.color;
+        Color startColor = new Color(HealthFlash.color.r, HealthFlash.color.g, HealthFlash.color.b, 0.6f);
+        HealthFlash.color = startColor;
+        float tick = 0f;
+        while (HealthFlash.color.a > 0)
+        {
+            tick += Time.deltaTime * speed;
+            HealthFlash.color = Color.Lerp(startColor, end, tick);
+            yield return null;
         }
     }
 }

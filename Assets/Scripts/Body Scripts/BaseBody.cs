@@ -13,6 +13,7 @@ public class BaseBody : MonoBehaviour, ICharacterController
 
     [Header("Camera Properties Base")]
     public GameObject ourCamera;
+    public bool DontHandleCamera = false;
     public float cameraYRotation = 0;
     public float cameraXRotation = 0;
     public const float MAX_LOOK_ROTATION = 89.99f;
@@ -25,7 +26,7 @@ public class BaseBody : MonoBehaviour, ICharacterController
 
     public void HandleCameraBase()
     {
-        if (characterMaster == null)
+        if (characterMaster == null || DontHandleCamera)
             return;
         float mouseX = characterMaster.horizontalCameraInput;
         cameraYRotation += mouseX;
