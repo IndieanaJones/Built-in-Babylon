@@ -134,7 +134,7 @@ public class BuildSign : Interactable
             if(EnablesBlaster)
             {
                 PlayerSpawner.ThePlayerRef.GetComponent<BuilderBody>().FPSBlaster.SetActive(true);
-                PlayerSpawner.ThePlayerRef.GetComponent<BuilderBody>().PickaxeRange += 10;
+                PlayerSpawner.ThePlayerRef.GetComponent<BuilderBody>().PickaxeRange += 25;
             }
             PlayerSpawner.ThePlayerRef.GetComponent<BuilderBody>().jumpForce += JumpHeightChange;
             PlayerSpawner.ThePlayerRef.GetComponent<BuilderBody>().moveSpeed *= SpeedMultChange;
