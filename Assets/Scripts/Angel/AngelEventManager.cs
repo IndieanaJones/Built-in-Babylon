@@ -130,7 +130,7 @@ public class AngelEventManager : MonoBehaviour
         {
             GameObject fallingFrog = (GameObject)Resources.Load("Prefabs/Falling Frog");
             Vector3 playerPos = PlayerSpawner.ThePlayerRef.transform.position;
-            Vector3 AttemptedPosition = new Vector3(playerPos.x + Random.Range(-100.0f, 100.0f), playerPos.y + 200, playerPos.z + Random.Range(-100.0f, 100.0f));
+            Vector3 AttemptedPosition = new Vector3(playerPos.x + Random.Range(-50.0f, 50.0f), playerPos.y + 200, playerPos.z + Random.Range(-50.0f, 50.0f));
             RaycastHit hit;
             if (Physics.Raycast(AttemptedPosition, Vector3.down, out hit, 400))
             {
