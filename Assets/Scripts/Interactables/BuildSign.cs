@@ -29,6 +29,7 @@ public class BuildSign : Interactable
     public GameObject[] ObjectsToEnable;
 
     public int MinePowerAdditiveChange = 0;
+    public float JumpHeightChange = 0;
 
     public virtual void Awake()
     {
@@ -125,6 +126,8 @@ public class BuildSign : Interactable
         foreach (GameObject toBeDisabled in ObjectsToDisable)
             toBeDisabled.SetActive(false);
         ProgressionManager.MiningPowerAdditive += MinePowerAdditiveChange;
+        if(PlayerSpawner.ThePlayerRef != null)
+            PlayerSpawner.ThePlayerRef.GetComponent<BuilderBody>().jumpForce += JumpHeightChange;
         Destroy(gameObject);
     }
 }

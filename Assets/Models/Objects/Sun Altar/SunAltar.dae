@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+<asset>
+<contributor>
+<author>VoxelShop User</author>
+<authoring_tool>VoxelShop V1.8.26
+</authoring_tool>
+</contributor>
+<created>2024-08-20T05:20:59</created>
+<modified>2024-08-20T05:20:59</modified>
+<unit meter="1" name="meter"/>
+<up_axis>Y_UP</up_axis>
+</asset>
+<library_images>
+<image id="SunAltar_texture0-image" name="SunAltar_texture0-image">
+<init_from>file://SunAltar_texture0.png</init_from>
+</image>
+</library_images>
+<library_effects>
+<effect id="lambert0-fx">
+<profile_COMMON>
+<newparam sid="SunAltar_texture0-surface">
+<surface type="2D">
+<init_from>SunAltar_texture0-image</init_from>
+</surface>
+</newparam>
+<newparam sid="SunAltar_texture0-sampler">
+<sampler2D>
+<source>SunAltar_texture0-surface</source>
+<wrap_s>WRAP</wrap_s>
+<wrap_t>WRAP</wrap_t>
+<minfilter>NEAREST</minfilter>
+<magfilter>NEAREST</magfilter>
+</sampler2D>
+</newparam>
+<technique sid="common">
+<lambert>
+<emission>
+<color>0 0 0 1</color>
+</emission>
+<ambient>
+<color>0 0 0 1</color>
+</ambient>
+<diffuse>
+<texture texcoord="TEX0" texture="SunAltar_texture0-sampler"/>
+</diffuse>
+</lambert>
+</technique>
+</profile_COMMON>
+</effect>
+</library_effects>
+<library_materials>
+<material id="lambert0-material" name="lambert0">
+<instance_effect url="#lambert0-fx"/>
+</material>
+</library_materials>
+<library_geometries>
+<geometry id="Plane-tex-mesh-0" name="Plane-tex">
+<mesh>
+<source id="Plane-tex-mesh-0-positions">
+<float_array count="48" id="Plane-tex-mesh-0-positions-array">-12 2 8 -12 -4 -8 -12 -4 8 -12 2 -8 -14 4 10 -14 2 -10 -14 2 10 -14 4 -10 12 2 8 12 -4 -8 12 -4 8 12 2 -8 14 4 10 14 2 -10 14 2 10 14 4 -10</float_array>
+<technique_common>
+<accessor count="16" source="#Plane-tex-mesh-0-positions-array" stride="3">
+<param name="X" type="float"/>
+<param name="Y" type="float"/>
+<param name="Z" type="float"/>
+</accessor>
+</technique_common>
+</source>
+<source id="Plane-tex-mesh-0-uvs">
+<float_array count="132" id="Plane-tex-mesh-0-uvs-array">0.06248125 0.8281125 0.015634375 0.70315 0.015634375 0.8281125 0.054676812 0.8531022 0.054676812 0.8281364 0.031271372 0.8281364 0.14063661 0.8281395 0.1562442 0.984346 0.1562442 0.8281395 0.1406308 0.828154 0.1406308 0.9843605 0.15623839 0.9843605 0.054664142 0.8281146 0.03126168 0.81252074 0.03126168 0.8281146 0.05467582 0.82810426 0.05467582 0.8125104 0.031273358 0.8125104 0.04686395 0.734386 0.031272095 0.734386 0.04686395 0.7499779 0.15626472 0.73438025 0.17188677 0.7499895 0.3749735 0.73438025 0.42186853 0.9843427 0.42186853 0.79688925 0.40626293 0.7812681 0.14063053 0.8281402 0.14063053 0.9843488 0.15623896 0.843761 0.14063604 0.843761 0.15624447 0.9843488 0.15624447 0.8281402 0.1093895 0.8281052 0.12499275 0.8124862 0.12499275 0.6875336 0.10938225 0.6875336 0.10938225 0.8124862 0.1249855 0.8281052 0.17188677 0.6875105 0.15626472 0.70311975 0.3749735 0.70311975 0.45313147 0.79688925 0.45313147 0.9843427 0.46873707 0.7812681 0.15627263 0.7500108 0.37498868 0.9062284 0.37498868 0.7500108 0.15626131 0.8281466 0.15626131 0.9843642 0.37497738 0.9843642 0.1562792 0.73438054 0.3749854 0.74998885 0.3749854 0.73438054 0.1562646 0.73438615 0.1562646 0.74999446 0.3749708 0.74999446 0.10935708 0.9843622 0.06250896 0.9843622 0.06250896 0.79690063 0.1562792 0.68750554 0.3749854 0.70311385 0.3749854 0.68750554 0.1562646 0.68751115 0.1562646 0.70311946 0.3749708 0.70311946</float_array>
+<technique_common>
+<accessor count="66" source="#Plane-tex-mesh-0-uvs-array" stride="2">
+<param name="S" type="float"/>
+<param name="T" type="float"/>
+</accessor>
+</technique_common>
+</source>
+<source id="Plane-tex-mesh-0-normals">
+<float_array count="18" id="Plane-tex-mesh-0-normals-array">-1 0 0 1 0 0 0 -1 0 0 1 0 0 0 1 0 0 -1 </float_array>
+<technique_common>
+<accessor count="6" source="#Plane-tex-mesh-0-normals-array" stride="3">
+<param name="X" type="float"/>
+<param name="Y" type="float"/>
+<param name="Z" type="float"/>
+</accessor>
+</technique_common>
+</source>
+<vertices id="Plane-tex-mesh-0-vertices">
+<input semantic="POSITION" source="#Plane-tex-mesh-0-positions"/>
+</vertices>
+<triangles count="28" material="Plane-tex-mesh-0-lambert0-material">
+<input offset="0" semantic="VERTEX" source="#Plane-tex-mesh-0-vertices"/>
+<input offset="1" semantic="TEXCOORD" set="0" source="#Plane-tex-mesh-0-uvs"/>
+<input offset="2" semantic="NORMAL" source="#Plane-tex-mesh-0-normals"/>
+<p>0 0 0 1 1 0 2 2 0 0 3 0 3 4 0 1 5 0 4 6 0 5 7 0 6 8 0 4 9 0 7 10 0 5 11 0 9 13 1 8 12 1 10 14 1 11 16 1 8 15 1 9 17 1 13 7 1 12 6 1 14 8 1 15 10 1 12 9 1 13 11 1 1 19 2 10 18 2 2 20 2 9 19 2 10 18 2 1 20 2 8 22 2 14 21 2 6 23 2 0 25 2 8 24 2 6 26 2 13 28 2 14 27 2 8 29 2 5 31 2 0 30 2 6 32 2 11 34 2 13 33 2 8 35 2 3 37 2 0 36 2 5 38 2 13 40 2 11 39 2 5 41 2 11 43 2 3 42 2 5 44 2 12 45 3 7 46 3 4 47 3 12 48 3 15 49 3 7 50 3 10 13 4 0 12 4 2 14 4 10 17 4 8 16 4 0 15 4 14 51 4 4 52 4 6 53 4 14 54 4 12 55 4 4 56 4 3 12 5 9 13 5 1 14 5 11 58 5 9 57 5 3 59 5 7 61 5 13 60 5 5 62 5 15 64 5 13 63 5 7 65 5</p>
+</triangles>
+</mesh>
+</geometry>
+</library_geometries>
+<library_visual_scenes>
+<visual_scene id="Scene" name="Scene">
+<node id="sunaltar.layer" name="SunAltar.Layer" type="NODE">
+<translate sid="location">-0.0 -0.0 0.0</translate>
+<rotate sid="rotationZ">0 0 1 0</rotate>
+<rotate sid="rotationY">0 1 0 0</rotate>
+<rotate sid="rotationX">1 0 0 0</rotate>
+<scale sid="scale">0.05 0.05 0.05</scale>
+<instance_geometry name="Layer" sid="sunaltar.layer" url="#Plane-tex-mesh-0">
+<bind_material>
+<technique_common>
+<instance_material symbol="lambert0-material" target="#lambert0-material">
+<bind_vertex_input input_semantic="TEXCOORD" input_set="0" semantic="TEX0"/>
+</instance_material>
+</technique_common>
+</bind_material>
+</instance_geometry>
+</node>
+</visual_scene>
+</library_visual_scenes>
+<scene>
+<instance_visual_scene url="#Scene"/>
+</scene>
+</COLLADA>

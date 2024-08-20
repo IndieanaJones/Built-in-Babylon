@@ -31,6 +31,7 @@ public class AngelTalker : MonoBehaviour
     public AudioSource AudioSourceComp;
 
     public bool GameIsOver = false;
+    public GameObject SunAltarSign;
 
     public void Start()
     {
@@ -120,7 +121,7 @@ public class AngelTalker : MonoBehaviour
 
     public void DoAngelLineTrigger(int lineToSay)
     {
-        if(Uninterruptable)
+        if(Uninterruptable && lineToSay != 99)
         {
             QueuedLines.Add(lineToSay);
             return;
@@ -147,6 +148,15 @@ public class AngelTalker : MonoBehaviour
                 break;
             case 5:
                 StartCoroutine(Line5());
+                break;
+            case 97:
+                StartCoroutine(Line97());
+                break;
+            case 98:
+                StartCoroutine(Line98());
+                break;
+            case 99:
+                StartCoroutine(Line99());
                 break;
             default:
                 StartCoroutine(LineNonExistant());
@@ -273,6 +283,51 @@ public class AngelTalker : MonoBehaviour
         CurrentlyTalking = false;
     }
 
+    public IEnumerator Line97()
+    {
+        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(OpenTextBox());
+        yield return StartCoroutine(SayLine("What?"));
+        yield return StartCoroutine(SayLine("You don't have any friends. What do you mean, 'Power of Friendship'?"));
+        yield return StartCoroutine(SayLine("I guess you could argue that the developer ran out of time to add your friends"));
+        yield return StartCoroutine(SayLine("But I think its far more likely you never had any to begin with :)"));
+        yield return StartCoroutine(CloseTextBox());
+    }
+
+    public IEnumerator Line98()
+    {
+        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(OpenTextBox());
+        yield return StartCoroutine(SayLine("So your trash pile is finally able to reach me."));
+        yield return StartCoroutine(SayLine("Very well. Get up here so I can smite you like the roach you are."));
+        yield return StartCoroutine(CloseTextBox());
+    }
+
+    public IEnumerator Line99()
+    {
+        Uninterruptable = true;
+        AngelEventManager.Instance.AvailableEvents.RemoveRange(0, AngelEventManager.Instance.AvailableEvents.Count);
+        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(OpenTextBox());
+        yield return StartCoroutine(SayLine("AUGH!!! MY EYE!!!", 3, 0.05f, "red"));
+        gameObject.GetComponent<Animator>().Play("Idle");
+        yield return StartCoroutine(SayLine("Why you little-"));
+        yield return StartCoroutine(SayLine("What did I ever do to you?"));
+        yield return StartCoroutine(SayLine("Whatever. I hope you enjoy your damn sun."));
+        yield return StartCoroutine(SayLine("But before I go, I just wanted to say..."));
+        yield return StartCoroutine(SayLine("Say what you want about my oasis, but at least..."));
+        yield return StartCoroutine(SayLine("It wasn't made out of default Unity cubes."));
+        yield return StartCoroutine(SayLine("If I could spit on you, I would."));
+        gameObject.GetComponent<Animator>().Play("Ascend");
+        CloudAnimator.Play("Move Out");
+        yield return StartCoroutine(SayLine("I'm leaving, screw this"));
+        SunAltarSign.SetActive(true);
+        Uninterruptable = false;
+        yield return StartCoroutine(CloseTextBox());
+        CloudAnimator.gameObject.SetActive(false);
+        CurrentlyTalking = false;
+    }
+
     public IEnumerator LineNonExistant()
     {
         CurrentlyTalking = true;
@@ -281,5 +336,22 @@ public class AngelTalker : MonoBehaviour
         yield return StartCoroutine(SayLine("That's a bit of a lark... Hopefully you're not actually playing this and see this one."));
         yield return StartCoroutine(CloseTextBox());
         CurrentlyTalking = false;
+    }
+
+    public void CallWinGame()
+    {
+        StartCoroutine(WinGame());
+    }
+
+    public IEnumerator WinGame()
+    {
+        while (BlackScreenCover.color.a < 1)
+        {
+            Color tempColor = BlackScreenCover.color;
+            tempColor.a += 0.0025f;
+            BlackScreenCover.color = tempColor;
+            yield return new WaitForSeconds(0.05f);
+        }
+        WinScreen.Instance.SetUpWinScreen();
     }
 }

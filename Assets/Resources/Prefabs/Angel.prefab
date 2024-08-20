@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 3818110788375705436}
   - component: {fileID: 2424067770124962903}
   - component: {fileID: 6817823430351729148}
+  - component: {fileID: 676610702993424083}
   m_Layer: 0
   m_Name: Angel
   m_TagString: Untagged
@@ -254,6 +255,7 @@ MonoBehaviour:
   MusicTrack: {fileID: 2814115909197020734}
   AudioSourceComp: {fileID: 6817823430351729148}
   GameIsOver: 0
+  SunAltarSign: {fileID: 0}
 --- !u!114 &2424067770124962903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,6 +370,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &676610702993424083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983952372424714583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2e8fe397fefc5849bb4b587b4bb56ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1612732679772887289
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,7 +595,7 @@ MonoBehaviour:
   RocksGathered: 0
   ConnectedBuildProject: 
   BuildPercent: 0
-  BuildSpeedPerSecond: 0.05
+  BuildSpeedPerSecond: 0.5
   AvailableAtStart: 0
   Rock1: {fileID: 0}
   Rock2: {fileID: 0}
@@ -595,7 +609,8 @@ MonoBehaviour:
   ObjectsToDisable: []
   ObjectsToEnable: []
   MinePowerAdditiveChange: 0
-  AngelAnimator: {fileID: 0}
+  JumpHeightChange: 0
+  AngelAnimator: {fileID: 3881931214306670114}
 --- !u!1 &3171758706008114347
 GameObject:
   m_ObjectHideFlags: 0
