@@ -22,8 +22,9 @@ public class WinScreen : MonoBehaviour
         WinScreenCanvas.SetActive(true);
         WinScreenUp = true;
         TimeTotalText.text = "Total Time: " + TimeSpan.FromSeconds(SunScript.EndTime);
-        if(PlayerPrefs.GetFloat("besttime") > SunScript.EndTime)
+        if(PlayerPrefs.GetFloat("besttime") == 0 || PlayerPrefs.GetFloat("besttime") > SunScript.EndTime)
             PlayerPrefs.SetFloat("besttime", SunScript.EndTime);
+        PlayerPrefs.SetInt("wongame", 1);
     }
 
     public void GoToMainMenuPressed()

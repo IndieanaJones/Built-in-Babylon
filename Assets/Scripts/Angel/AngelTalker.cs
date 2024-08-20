@@ -36,6 +36,7 @@ public class AngelTalker : MonoBehaviour
     public void Start()
     {
         Instance = this;
+        ProgressionManager.MiningPowerAdditive = 0;
         AngelTalkerCanvas.gameObject.SetActive(true);
         if (PlayerPrefs.GetInt("skiptutorial") == 0)
             StartCoroutine(Line0());
@@ -149,6 +150,9 @@ public class AngelTalker : MonoBehaviour
             case 5:
                 StartCoroutine(Line5());
                 break;
+            case 6:
+                StartCoroutine(Line6());
+                break;
             case 97:
                 StartCoroutine(Line97());
                 break;
@@ -179,6 +183,7 @@ public class AngelTalker : MonoBehaviour
 
     public IEnumerator Line0()
     {
+        ProgressionManager.IntroFinished = false;
         yield return new WaitForSeconds(2f);
         yield return StartCoroutine(RemoveBlackscreen());
         CurrentlyTalking = true;
@@ -278,6 +283,19 @@ public class AngelTalker : MonoBehaviour
         yield return StartCoroutine(SayLine("But you don't seem to care for my words, do you?"));
         yield return StartCoroutine(SayLine("Perhaps we should get some of your peers to review your work instead..."));
         AngelEventManager.Instance.AddEvent("mummies");
+        Uninterruptable = false;
+        yield return StartCoroutine(CloseTextBox());
+        CurrentlyTalking = false;
+    }
+
+    public IEnumerator Line6()
+    {
+        Uninterruptable = true;
+        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(OpenTextBox());
+        yield return StartCoroutine(SayLine("Another floor to the trash heap, then."));
+        yield return StartCoroutine(SayLine("Perhaps your distasteful architecture should be handled like garbage..."));
+        yield return StartCoroutine(SayLine("And CLEANSED.", 3, 0.05f, "red"));
         Uninterruptable = false;
         yield return StartCoroutine(CloseTextBox());
         CurrentlyTalking = false;
