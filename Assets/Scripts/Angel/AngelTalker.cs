@@ -300,6 +300,7 @@ public class AngelTalker : MonoBehaviour
         yield return StartCoroutine(SayLine("Another floor to the trash heap, then."));
         yield return StartCoroutine(SayLine("Perhaps your distasteful architecture should be handled like garbage..."));
         yield return StartCoroutine(SayLine("And CLEANSED.", 3, 0.05f, "red"));
+        AngelEventManager.Instance.MaxMummies = 25;
         AngelEventManager.Instance.AddEvent("flood");
         Uninterruptable = false;
         yield return StartCoroutine(CloseTextBox());
@@ -315,6 +316,7 @@ public class AngelTalker : MonoBehaviour
         yield return StartCoroutine(SayLine("Even after all my fancy tricks."));
         yield return StartCoroutine(SayLine("Ah, well, some things can't be helped."));
         yield return StartCoroutine(SayLine("Frog rain it is, then.", 3, 0.05f, "red"));
+        AngelEventManager.Instance.MaxMummies = 40;
         AngelEventManager.Instance.AddEvent("frogs");
         Uninterruptable = false;
         yield return StartCoroutine(CloseTextBox());
