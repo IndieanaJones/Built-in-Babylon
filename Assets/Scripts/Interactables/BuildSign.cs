@@ -30,6 +30,9 @@ public class BuildSign : Interactable
 
     public int MinePowerAdditiveChange = 0;
     public float JumpHeightChange = 0;
+    public int RockCarryCapacityChange = 0;
+    public float SpeedMultChange = 1;
+    public bool EnablesBlaster = false;
 
     public virtual void Awake()
     {
@@ -126,8 +129,17 @@ public class BuildSign : Interactable
         foreach (GameObject toBeDisabled in ObjectsToDisable)
             toBeDisabled.SetActive(false);
         ProgressionManager.MiningPowerAdditive += MinePowerAdditiveChange;
-        if(PlayerSpawner.ThePlayerRef != null)
+        if (PlayerSpawner.ThePlayerRef != null)
+        {
+            if(EnablesBlaster)
+            {
+                PlayerSpawner.ThePlayerRef.GetComponent<BuilderBody>().FPSBlaster.SetActive(true);
+                PlayerSpawner.ThePlayerRef.GetComponent<BuilderBody>().PickaxeRange += 10;
+            }
             PlayerSpawner.ThePlayerRef.GetComponent<BuilderBody>().jumpForce += JumpHeightChange;
+            PlayerSpawner.ThePlayerRef.GetComponent<BuilderBody>().moveSpeed *= SpeedMultChange;
+            PlayerSpawner.ThePlayerRef.GetComponent<RockCollector>().MaximumRockCapacity += RockCarryCapacityChange;
+        }
         Destroy(gameObject);
     }
 }

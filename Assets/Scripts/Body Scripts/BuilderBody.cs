@@ -35,6 +35,9 @@ public class BuilderBody : BaseBody
     [Header("Chiseling")]
     public bool isChiseling = false;
 
+    [Header("Builder")]
+    public GameObject FPSBlaster;
+
     public void Update()
     {
         HandleCameraBase();
