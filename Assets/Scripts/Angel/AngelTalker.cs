@@ -153,6 +153,9 @@ public class AngelTalker : MonoBehaviour
             case 6:
                 StartCoroutine(Line6());
                 break;
+            case 7:
+                StartCoroutine(Line7());
+                break;
             case 97:
                 StartCoroutine(Line97());
                 break;
