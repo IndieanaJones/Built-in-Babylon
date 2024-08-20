@@ -9,7 +9,7 @@ public class SetUpGameStart : MonoBehaviour
 
     public BuildSign SignToSkipTutorial;
 
-    public void Awake()
+    public void Start()
     {
         ProgressionManager.TutorialSkipped = PlayerPrefs.GetInt("skiptutorial") == 1;
         foreach(GameObject leObject in ThingsToDisable)

@@ -189,6 +189,7 @@ Transform:
   - {fileID: 4336847583257274729}
   - {fileID: 6004481940446043349}
   - {fileID: 462541546603212916}
+  - {fileID: 4953037368933794040}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -205,7 +206,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 1e742279b36c2f149b1b4cc7bbb58f40, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -248,8 +249,11 @@ MonoBehaviour:
   CloudAnimator: {fileID: 0}
   VoiceSoundList: []
   CurrentlyTalking: 0
+  Uninterruptable: 0
+  QueuedLines: 
   MusicTrack: {fileID: 2814115909197020734}
   AudioSourceComp: {fileID: 6817823430351729148}
+  GameIsOver: 0
 --- !u!114 &2424067770124962903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,6 +515,87 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pivotSize: 1
   pivotColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+--- !u!1 &2786805314804796599
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4953037368933794040}
+  - component: {fileID: 7287489825355521157}
+  - component: {fileID: 667366041137806128}
+  m_Layer: 7
+  m_Name: Interactable Bit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4953037368933794040
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2786805314804796599}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 983952372424714582}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7287489825355521157
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2786805314804796599}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 80, y: 100, z: 2}
+  m_Center: {x: 0, y: -10, z: 100}
+--- !u!114 &667366041137806128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2786805314804796599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e8acfab147ed34da9d0e9607e5ec74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NearbyInteractors: []
+  InteractString: Dummy
+  CanInteractHold: 0
+  InteractHoldUseChiselAnimation: 0
+  RocksRequired: 100
+  RocksGathered: 0
+  ConnectedBuildProject: 
+  BuildPercent: 0
+  BuildSpeedPerSecond: 0.05
+  AvailableAtStart: 0
+  Rock1: {fileID: 0}
+  Rock2: {fileID: 0}
+  Rock3: {fileID: 0}
+  TriggersDialogueOnRockDeposit: 0
+  RockDepositLine: -1
+  TriggersDialogueOnBuildStart: 0
+  BuildStartLine: -1
+  TriggersDialogueOnBuildComplete: 0
+  BuildCompleteLine: -1
+  ObjectsToDisable: []
+  ObjectsToEnable: []
+  MinePowerAdditiveChange: 0
+  AngelAnimator: {fileID: 0}
 --- !u!1 &3171758706008114347
 GameObject:
   m_ObjectHideFlags: 0

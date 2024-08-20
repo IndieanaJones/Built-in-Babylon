@@ -27,7 +27,7 @@ public class EscapeMenu : MonoBehaviour
         }
         EscapeMenuCanvas.SetActive(IsPaused);
         GameMusic.volume = IsPaused ? 0.1f : 0.25f;
-        GameMusic.volume = PlayerSpawner.ThePlayerRef == null ? 0.0f : GameMusic.volume;
+        GameMusic.volume = (PlayerSpawner.ThePlayerRef == null || AngelTalker.Instance.GameIsOver) ? 0.0f : GameMusic.volume;
         Cursor.lockState = (IsPaused || PlayerSpawner.ThePlayerRef == null) ? CursorLockMode.None : CursorLockMode.Locked;
         Time.timeScale = (IsPaused || PlayerSpawner.ThePlayerRef == null) ? 0 : 1;
     }

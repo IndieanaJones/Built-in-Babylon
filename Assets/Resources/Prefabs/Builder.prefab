@@ -496,7 +496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RocksCollected: 0
   MaximumRockCapacity: 100
-  HasInfiniteRocks: 0
+  HasInfiniteRocks: 1
 --- !u!114 &6044635960594412615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,6 +511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseBodyComp: {fileID: 1537026231611543040}
   NearestInteractable: {fileID: 0}
+  Instabuilder: 1
 --- !u!114 &4888820491965681747
 MonoBehaviour:
   m_ObjectHideFlags: 0

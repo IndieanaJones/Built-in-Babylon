@@ -24,9 +24,13 @@ public class AngelTalker : MonoBehaviour
     public AudioClip[] VoiceSoundList;
 
     public bool CurrentlyTalking = false;
+    public bool Uninterruptable = false;
+    public List<int> QueuedLines = new List<int>();
 
     public AudioSource MusicTrack;
     public AudioSource AudioSourceComp;
+
+    public bool GameIsOver = false;
 
     public void Start()
     {
@@ -38,6 +42,15 @@ public class AngelTalker : MonoBehaviour
         {
             StartCoroutine(RemoveBlackscreen());
             StartCoroutine(Line4());
+        }
+    }
+
+    public void FixedUpdate()
+    {
+        if (QueuedLines.Count > 0)
+        {
+            DoAngelLineTrigger(QueuedLines[0]);
+            QueuedLines.RemoveAt(0);
         }
     }
 
@@ -107,6 +120,11 @@ public class AngelTalker : MonoBehaviour
 
     public void DoAngelLineTrigger(int lineToSay)
     {
+        if(Uninterruptable)
+        {
+            QueuedLines.Add(lineToSay);
+            return;
+        }
         StopAllCoroutines();
         if(CurrentlyTalking)
             AngelTalkerText.text += "-";
@@ -218,6 +236,7 @@ public class AngelTalker : MonoBehaviour
 
     public IEnumerator Line4()
     {
+        Uninterruptable = true;
         yield return new WaitForSeconds(1f);
         TimeGameStarted = Time.time;
         CurrentlyTalking = true;
@@ -235,19 +254,21 @@ public class AngelTalker : MonoBehaviour
         AngelEventManager.Instance.AddEvent("lightning");
         AngelEventManager.Instance.TimeForNextEvent = Time.time + 5f;
         AngelEventManager.Instance.PauseEventTimer = false;
+        Uninterruptable = false;
         yield return StartCoroutine(CloseTextBox());
         CurrentlyTalking = false;
     }
 
     public IEnumerator Line5()
     {
+        Uninterruptable = true;
         yield return new WaitForSeconds(1f);
         yield return StartCoroutine(OpenTextBox());
         yield return StartCoroutine(SayLine("What hideous walls you've built."));
-        yield return StartCoroutine(SayLine("Probably structurally unsound, too."));
         yield return StartCoroutine(SayLine("But you don't seem to care for my words, do you?"));
         yield return StartCoroutine(SayLine("Perhaps we should get some of your peers to review your work instead..."));
         AngelEventManager.Instance.AddEvent("mummies");
+        Uninterruptable = false;
         yield return StartCoroutine(CloseTextBox());
         CurrentlyTalking = false;
     }

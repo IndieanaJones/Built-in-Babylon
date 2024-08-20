@@ -10,6 +10,8 @@ public class BuildSign : Interactable
     public float BuildPercent = 0;
     public float BuildSpeedPerSecond = 0.25f;
 
+    public bool AvailableAtStart = false;
+
     public GameObject Rock1;
     public GameObject Rock2;
     public GameObject Rock3;
@@ -28,13 +30,29 @@ public class BuildSign : Interactable
 
     public int MinePowerAdditiveChange = 0;
 
+    public virtual void Awake()
+    {
+        if (!AvailableAtStart)
+        {
+            foreach (GameObject toBeEnabled in ObjectsToEnable)
+                if(toBeEnabled.GetComponent<BuildSign>() == null)
+                    toBeEnabled.SetActive(false);
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            foreach (GameObject toBeEnabled in ObjectsToEnable)
+                toBeEnabled.SetActive(false);
+        }
+    }
+
     public override void Update()
     {
         base.Update();
         UpdateInteractText();
     }
 
-    public void UpdateInteractText()
+    public virtual void UpdateInteractText()
     {
         if (RocksRequired > RocksGathered)
             InteractString = "(E) Construct " + ConnectedBuildProject + " - " + RocksRequired + " Rocks (" + RocksGathered + "/" + RocksRequired + ")";
@@ -80,6 +98,12 @@ public class BuildSign : Interactable
 
     public override void OnInteractHeld(Interactor interactor)
     {
+        if (interactor.Instabuilder)
+        {
+            if (TriggersDialogueOnBuildComplete)
+                AngelTalker.Instance.DoAngelLineTrigger(BuildCompleteLine);
+            DoCompletionEffects();
+        }
         if (RocksRequired != RocksGathered)
             return;
         if(BuildPercent == 0 && TriggersDialogueOnBuildStart)
@@ -93,7 +117,7 @@ public class BuildSign : Interactable
         }
     }
 
-    public void DoCompletionEffects()
+    public virtual void DoCompletionEffects()
     {
         DirectCameraSound.Instance.PlaySound("Building Complete");
         foreach (GameObject toBeEnabled in ObjectsToEnable)

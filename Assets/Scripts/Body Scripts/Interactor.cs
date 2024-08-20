@@ -6,6 +6,7 @@ public class Interactor : MonoBehaviour
 {
     public BaseBody BaseBodyComp;
     public Interactable NearestInteractable;
+    public bool Instabuilder = false;
 
     public void FixedUpdate()
     {
