@@ -13,6 +13,8 @@ public class AngelEventManager : MonoBehaviour
     public int MaxMummies = 10;
     public List<GameObject> MummyList;
 
+    public float FloodCooldown = -1;
+
     public void Start()
     {
         Instance = this;
@@ -52,7 +54,15 @@ public class AngelEventManager : MonoBehaviour
                 StartCoroutine(DirectLightningStrike());
                 break;
             case "mummies":
+                TimeForNextEvent = Time.time + 20f + UnityEngine.Random.Range(-10, 10);
                 StartCoroutine(SummonMummies(5));
+                break;
+            case "flood":
+                if (FloodCooldown > Time.time || Flood.Instance.FloodActive)
+                    return;
+                TimeForNextEvent = Time.time + 35f + UnityEngine.Random.Range(-5, 5);
+                FloodCooldown = Time.time + 100;
+                Flood.Instance.BeginFlood();
                 break;
             default:
                 break;
@@ -70,7 +80,6 @@ public class AngelEventManager : MonoBehaviour
 
     public IEnumerator SummonMummies(int summonCount)
     {
-        TimeForNextEvent = Time.time + 20f + UnityEngine.Random.Range(-10, 10);
         yield return new WaitForSeconds(2);
         int AmountToSummon = Mathf.Min(summonCount, MaxMummies - MummyList.Count);
         GameObject mummy = (GameObject)Resources.Load("Prefabs/Mummy");
@@ -87,6 +96,7 @@ public class AngelEventManager : MonoBehaviour
                     {
                         GameObject newMummy = Instantiate(mummy, new Vector3(hit.point.x, hit.point.y + 2.2f, hit.point.z), Quaternion.identity);
                         MummyList.Add(newMummy);
+                        break;
                     }
                     else
                     {
@@ -96,6 +106,7 @@ public class AngelEventManager : MonoBehaviour
                 else
                     spawnAttempts++;
             }
+            TimeForNextEvent -= 1;
         }
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Flood : MonoBehaviour
 {
+    public static Flood Instance;
+
     public GameObject WaterObject;
     public GameObject RainfallEffect;
     public GameObject CanvasUnderwaterEffect;
@@ -16,6 +18,11 @@ public class Flood : MonoBehaviour
     public int Stage = -1;
 
     public float LastTimePlayerHurt = -1;
+
+    public void Start()
+    {
+        Instance = this;
+    }
 
     public void BeginFlood()
     {
@@ -33,13 +40,18 @@ public class Flood : MonoBehaviour
 
     public void Update()
     {
+        if (PlayerSpawner.ThePlayerRef == null)
+        {
+            RainSoundLoop.Stop();
+            return;
+        }
         if (PlayerSpawner.ThePlayerRef.transform.position.y + 2.1f < WaterLevel)
         {
             CanvasUnderwaterEffect.SetActive(true);
-            if (LastTimePlayerHurt + 0.75f < Time.time)
+            if (LastTimePlayerHurt + 1.25f < Time.time)
             {
                 LastTimePlayerHurt = Time.time;
-                PlayerSpawner.ThePlayerRef.GetComponent<Health>().TakeDamage(1);
+                PlayerSpawner.ThePlayerRef.GetComponent<Health>().TakeDamage(1, true);
             }
         }
         else
@@ -60,13 +72,14 @@ public class Flood : MonoBehaviour
         RainfallEffect.transform.position = new Vector3(PlayerSpawner.ThePlayerRef.transform.position.x, PlayerSpawner.ThePlayerRef.transform.position.y + 20, PlayerSpawner.ThePlayerRef.transform.position.z);
         if(Stage == 0)
         {
-            WaterObject.transform.position = Vector3.Lerp(new Vector3(0, -10, 0), new Vector3(0, 5, 0), Age / (20));
-            if (Age >= 20)
+            RainfallEffect.SetActive(true);
+            WaterObject.transform.position = Vector3.Lerp(new Vector3(0, -10, 0), new Vector3(0, 5, 0), Age / (30));
+            if (Age >= 30)
                 Stage++;
         }
         if(Stage == 1)
         {
-            if (Age >= 30)
+            if (Age >= 40)
             {
                 RainfallEffect.SetActive(false);
                 RainSoundLoop.Stop();
@@ -75,7 +88,7 @@ public class Flood : MonoBehaviour
         }
         if(Stage == 2)
         {
-            WaterObject.transform.position = Vector3.Lerp(new Vector3(0, 5, 0), new Vector3(0, -10, 0), (Age - 30) / 20);
+            WaterObject.transform.position = Vector3.Lerp(new Vector3(0, 5, 0), new Vector3(0, -10, 0), (Age - 40) / 10);
             if (Age >= 50)
                 Stage++;
         }

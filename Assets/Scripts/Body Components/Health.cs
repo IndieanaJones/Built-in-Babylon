@@ -34,15 +34,17 @@ public class Health : MonoBehaviour
         CurrentHealth = Mathf.Min(CurrentHealth + healAmount, MaxHealth);
     }
 
-    public void TakeDamage(int damageAmount)
+    public void TakeDamage(int damageAmount, bool drownDamage = false)
     {
         CurrentHealth = Mathf.Max(0, CurrentHealth - damageAmount);
         if (CurrentHealth != 0)
         {
             if(!ImportantGuy)
                 BaseBodyComp.PlaySound(HurtSound, 0.0f);
-            else
+            else if(!drownDamage)
                 DirectCameraSound.Instance.PlaySound(HurtSound, 0.0f);
+            else
+                DirectCameraSound.Instance.PlaySound("Drown Sound", 0.0f);
         }
         else
             DirectCameraSound.Instance.PlaySound(DeathSound);

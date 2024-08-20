@@ -267,6 +267,7 @@ public class AngelTalker : MonoBehaviour
         MusicTrack.Play();
         yield return StartCoroutine(SayLine("YOU WILL PAY FOR WHAT YOU HAVE DONE", 3, 0.1f, "red"));
         AngelEventManager.Instance.AddEvent("lightning");
+        AngelEventManager.Instance.AddEvent("lightning");
         AngelEventManager.Instance.TimeForNextEvent = Time.time + 5f;
         AngelEventManager.Instance.PauseEventTimer = false;
         Uninterruptable = false;
@@ -296,6 +297,7 @@ public class AngelTalker : MonoBehaviour
         yield return StartCoroutine(SayLine("Another floor to the trash heap, then."));
         yield return StartCoroutine(SayLine("Perhaps your distasteful architecture should be handled like garbage..."));
         yield return StartCoroutine(SayLine("And CLEANSED.", 3, 0.05f, "red"));
+        AngelEventManager.Instance.AddEvent("flood");
         Uninterruptable = false;
         yield return StartCoroutine(CloseTextBox());
         CurrentlyTalking = false;
