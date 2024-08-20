@@ -13,11 +13,21 @@ public class AngelEventManager : MonoBehaviour
     public int MaxMummies = 10;
     public List<GameObject> MummyList;
 
+    public bool FrogSpawnRequested;
+    public float TimeUntilNextFrog;
+    public int FrogsSpawned = 0;
+
     public float FloodCooldown = -1;
 
     public void Start()
     {
         Instance = this;
+    }
+
+    public void Update()
+    {
+        if (FrogSpawnRequested)
+            UpdateFrogSpawn();
     }
 
     public void FixedUpdate()
@@ -64,6 +74,10 @@ public class AngelEventManager : MonoBehaviour
                 FloodCooldown = Time.time + 100;
                 Flood.Instance.BeginFlood();
                 break;
+            case "frogs":
+                TimeForNextEvent = Time.time + 30f + UnityEngine.Random.Range(-5, 5);
+                FrogSpawnRequested = true;
+                break;
             default:
                 break;
         }
@@ -107,6 +121,29 @@ public class AngelEventManager : MonoBehaviour
                     spawnAttempts++;
             }
             TimeForNextEvent -= 1;
+        }
+    }
+
+    public void UpdateFrogSpawn()
+    {
+        if (TimeUntilNextFrog < Time.time)
+        {
+            GameObject fallingFrog = (GameObject)Resources.Load("Prefabs/Falling Frog");
+            Vector3 playerPos = PlayerSpawner.ThePlayerRef.transform.position;
+            Vector3 AttemptedPosition = new Vector3(playerPos.x + Random.Range(-100.0f, 100.0f), playerPos.y + 200, playerPos.z + Random.Range(-100.0f, 100.0f));
+            RaycastHit hit;
+            if (Physics.Raycast(AttemptedPosition, Vector3.down, out hit, 400))
+            {
+                if (hit.transform != null && hit.transform.gameObject.layer != 7)
+                    Instantiate(fallingFrog, new Vector3(hit.point.x, hit.point.y, hit.point.z), Quaternion.identity);
+            }
+            FrogsSpawned++;
+            TimeUntilNextFrog = Time.time + 0.05f;
+            if (FrogsSpawned >= 300)
+            {
+                FrogsSpawned = 0;
+                FrogSpawnRequested = false;
+            }
         }
     }
 }

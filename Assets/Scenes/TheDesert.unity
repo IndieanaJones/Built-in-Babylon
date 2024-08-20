@@ -1108,7 +1108,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8323859561060161450, guid: ac6447936f97f8d40bc9dc35433d250e, type: 3}
       propertyPath: BuildCompleteLine
-      value: -1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8323859561060161450, guid: ac6447936f97f8d40bc9dc35433d250e, type: 3}
       propertyPath: BuildSpeedPerSecond
@@ -1140,7 +1140,7 @@ PrefabInstance:
       objectReference: {fileID: 1677679430}
     - target: {fileID: 8323859561060161450, guid: ac6447936f97f8d40bc9dc35433d250e, type: 3}
       propertyPath: TriggersDialogueOnBuildComplete
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac6447936f97f8d40bc9dc35433d250e, type: 3}

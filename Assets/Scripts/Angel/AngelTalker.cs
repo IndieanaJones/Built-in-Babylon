@@ -303,6 +303,21 @@ public class AngelTalker : MonoBehaviour
         CurrentlyTalking = false;
     }
 
+    public IEnumerator Line7()
+    {
+        Uninterruptable = true;
+        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(OpenTextBox());
+        yield return StartCoroutine(SayLine("Somehow, you're still alive."));
+        yield return StartCoroutine(SayLine("Even after all my fancy tricks."));
+        yield return StartCoroutine(SayLine("Ah, well, some things can't be helped."));
+        yield return StartCoroutine(SayLine("Frog rain it is, then.", 3, 0.05f, "red"));
+        AngelEventManager.Instance.AddEvent("frogs");
+        Uninterruptable = false;
+        yield return StartCoroutine(CloseTextBox());
+        CurrentlyTalking = false;
+    }
+
     public IEnumerator Line97()
     {
         yield return new WaitForSeconds(1f);
