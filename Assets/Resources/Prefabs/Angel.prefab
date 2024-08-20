@@ -274,6 +274,7 @@ MonoBehaviour:
   AvailableEvents: []
   MaxMummies: 10
   MummyList: []
+  FloodCooldown: -1
 --- !u!82 &6817823430351729148
 AudioSource:
   m_ObjectHideFlags: 0
@@ -964,7 +965,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4334193328b1163428ac763ba9fd222e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7e3db86c4195c9a41b27c59cee1bcfc0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1

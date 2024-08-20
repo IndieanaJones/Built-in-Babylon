@@ -176,7 +176,7 @@ public class BuilderBody : BaseBody
             if (hitCollider.GetComponent<MeshRenderer>().sharedMaterial.name == "Road")
                 SpeedMultiplier = 2f;
             else if (hitCollider.GetComponent<MeshRenderer>().sharedMaterial.name.Contains("Carpet"))
-                SpeedMultiplier = 1.5f;
+                SpeedMultiplier = 2f;
             else
                 SpeedMultiplier = 1;
         }
