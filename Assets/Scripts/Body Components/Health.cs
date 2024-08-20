@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
     public int MaxHealth = 10;
     public int CurrentHealth = 10;
     public bool DeathCalledFor = false;
+    public bool ImportantGuy = false;
 
     public BaseBody BaseBodyComp;
 
@@ -37,8 +38,13 @@ public class Health : MonoBehaviour
     {
         CurrentHealth = Mathf.Max(0, CurrentHealth - damageAmount);
         if (CurrentHealth != 0)
-            BaseBodyComp.PlaySound(HurtSound, 0.0f);
+        {
+            if(!ImportantGuy)
+                BaseBodyComp.PlaySound(HurtSound, 0.0f);
+            else
+                DirectCameraSound.Instance.PlaySound(HurtSound, 0.0f);
+        }
         else
-            AudioSource.PlayClipAtPoint((AudioClip)Resources.Load("Sounds/" + DeathSound), transform.position, 2);
+            DirectCameraSound.Instance.PlaySound(DeathSound);
     }
 }

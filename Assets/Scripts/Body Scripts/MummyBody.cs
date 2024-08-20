@@ -31,6 +31,7 @@ public class MummyBody : BaseBody
     [Header("Mummy")]
     public bool IsEmerging = false;
     public List<GameObject> BodyParts;
+    public ParticleSystem MummyBlood;
 
     public void Update()
     {
@@ -75,6 +76,8 @@ public class MummyBody : BaseBody
     public override void Die()
     {
         base.Die();
+        MummyBlood.Play();
+        MummyBlood.transform.SetParent(null);
         foreach (GameObject part in BodyParts)
         {
             part.transform.SetParent(null);

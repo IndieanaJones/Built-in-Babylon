@@ -163,6 +163,7 @@ GameObject:
   m_Component:
   - component: {fileID: 983952372424714582}
   - component: {fileID: 3881931214306670114}
+  - component: {fileID: 5287128056872278386}
   - component: {fileID: 3818110788375705436}
   - component: {fileID: 2424067770124962903}
   - component: {fileID: 6817823430351729148}
@@ -211,6 +212,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5287128056872278386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983952372424714583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddcff9fb94e9400488ce2b96887549be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerTarget: {fileID: 0}
+  EyePivot: {fileID: 4012461355421928799}
 --- !u!114 &3818110788375705436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,6 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b91adaf5b1aa21f4ba23dd59776c750e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TimeGameStarted: -1
   AngelTalkerCanvas: {fileID: 1067252817369092390}
   AngelTalkerTextbox: {fileID: 1614433415829728713}
   HappyCloudSprite: {fileID: 21300000, guid: 0df09ca8abf614649a3c038c0abbd3ba, type: 3}
@@ -251,6 +267,7 @@ MonoBehaviour:
   TimeForNextEvent: 15
   AvailableEvents: []
   MaxMummies: 10
+  MummyList: []
 --- !u!82 &6817823430351729148
 AudioSource:
   m_ObjectHideFlags: 0

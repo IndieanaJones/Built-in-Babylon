@@ -526,6 +526,7 @@ MonoBehaviour:
   MaxHealth: 10
   CurrentHealth: 10
   DeathCalledFor: 0
+  ImportantGuy: 1
   BaseBodyComp: {fileID: 1537026231611543040}
   HurtSound: Impact Human
   DeathSound: Human Death

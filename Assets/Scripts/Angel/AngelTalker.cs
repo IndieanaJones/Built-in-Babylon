@@ -7,6 +7,8 @@ public class AngelTalker : MonoBehaviour
 {
     public static AngelTalker Instance;
 
+    public float TimeGameStarted = -1;
+
     public Canvas AngelTalkerCanvas;
 
     public Image AngelTalkerTextbox;
@@ -30,7 +32,13 @@ public class AngelTalker : MonoBehaviour
     {
         Instance = this;
         AngelTalkerCanvas.gameObject.SetActive(true);
-        StartCoroutine(Line0());
+        if (PlayerPrefs.GetInt("skiptutorial") == 0)
+            StartCoroutine(Line0());
+        else
+        {
+            StartCoroutine(RemoveBlackscreen());
+            StartCoroutine(Line4());
+        }
     }
 
     public IEnumerator RemoveBlackscreen()
@@ -211,6 +219,7 @@ public class AngelTalker : MonoBehaviour
     public IEnumerator Line4()
     {
         yield return new WaitForSeconds(1f);
+        TimeGameStarted = Time.time;
         CurrentlyTalking = true;
         AngelTalkerTextbox.sprite = AngryCloudSprite;
         ProgressionManager.IntroFinished = true;

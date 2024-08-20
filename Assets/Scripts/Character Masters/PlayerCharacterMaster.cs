@@ -9,6 +9,10 @@ public class PlayerCharacterMaster : CharacterMaster
 
     void Update()
     {
+        horizontalCameraInput = 0;
+        verticalCameraInput = 0;
+        if (EscapeMenu.Instance != null && EscapeMenu.Instance.IsPaused)
+            return;
         horizontalCameraInput = Input.GetAxis("Mouse X") * _horizontalCameraSpeed;
         verticalCameraInput = Input.GetAxis("Mouse Y") * _verticalCameraSpeed;
 

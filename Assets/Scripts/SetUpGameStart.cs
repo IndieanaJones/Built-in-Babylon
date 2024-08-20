@@ -7,8 +7,11 @@ public class SetUpGameStart : MonoBehaviour
     public GameObject[] ThingsToDisable;
     public GameObject[] ThingsToEnable;
 
+    public BuildSign SignToSkipTutorial;
+
     public void Awake()
     {
+        ProgressionManager.TutorialSkipped = PlayerPrefs.GetInt("skiptutorial") == 1;
         foreach(GameObject leObject in ThingsToDisable)
         {
             leObject.SetActive(false);
@@ -17,5 +20,7 @@ public class SetUpGameStart : MonoBehaviour
         {
             leObject.SetActive(true);
         }
+        if (ProgressionManager.TutorialSkipped)
+            SignToSkipTutorial.DoCompletionEffects();
     }
 }

@@ -20,6 +20,16 @@ public class AngelEventManager : MonoBehaviour
 
     public void FixedUpdate()
     {
+        List<GameObject> mummiesToRemove = new List<GameObject>();
+        foreach(GameObject mummy in MummyList)
+        {
+            if (mummy == null)
+                mummiesToRemove.Add(mummy);
+        }
+        foreach(GameObject mummy in mummiesToRemove)
+        {
+            MummyList.Remove(mummy);
+        }
         if(AvailableEvents.Count > 0 && TimeForNextEvent <= Time.time && !PauseEventTimer)
         {
             DoEvent();

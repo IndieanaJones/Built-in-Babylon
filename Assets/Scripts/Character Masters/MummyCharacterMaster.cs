@@ -57,7 +57,11 @@ public class MummyCharacterMaster : CharacterMaster
 
         Quaternion lookRotation = Quaternion.LookRotation(Target.transform.position - transform.position);
         MummyBodyComp.cameraYRotation = lookRotation.eulerAngles.y;
-        if (Vector3.Distance(Target.transform.position, transform.position) <= MummyBodyComp.AttackRange)
+        float TargetDistance = Vector3.Distance(Target.transform.position, transform.position);
+        movementYAxisInput = 1;
+        if (TargetDistance <= MummyBodyComp.AttackRange)
             primaryFireHeld = true;
+        if (TargetDistance <= 0.5f)
+            movementYAxisInput = 0;
     }
 }

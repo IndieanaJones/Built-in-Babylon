@@ -95,7 +95,7 @@ public class BuildSign : Interactable
 
     public void DoCompletionEffects()
     {
-        AudioSource.PlayClipAtPoint(((AudioClip)Resources.Load("Sounds/Building Complete")), transform.position);
+        DirectCameraSound.Instance.PlaySound("Building Complete");
         foreach (GameObject toBeEnabled in ObjectsToEnable)
             toBeEnabled.SetActive(true);
         foreach (GameObject toBeDisabled in ObjectsToDisable)
